@@ -1,8 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
-import HomePage from "./pages/HomePage";
 import CheckoutLayout from "./components/CheckoutLayout";
+import AuthLayout from "./components/AuthLayout";
+import HomePage from "./pages/HomePage";
 import CheckoutPage from "./pages/CheckoutPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 
 export default function App() {
   return (
@@ -14,6 +17,12 @@ export default function App() {
 
       <Route element={<CheckoutLayout />}>
         <Route path="checkout" element={<CheckoutPage />} />
+      </Route>
+
+      {/* Sign in and create account: split-screen layout */}
+      <Route element={<AuthLayout />}>
+        <Route path="login" element={<LoginPage />} />
+        <Route path="register" element={<RegisterPage />} />
       </Route>
     </Routes>
   );
